@@ -1,10 +1,14 @@
-function main() {
-    console.log("DEVICES:")
-    // Get all connected USB devices the website has been granted access to.
-    navigator.usb.getDevices().then(devices => {
-        devices.forEach(device => {
-            console.log(device.productName);      // "Arduino Micro"
-            console.log(device.manufacturerName); // "Arduino LLC"
-        });
-    })
+async function ports() {
+    const ports = await navigator.serial.getPorts();
+
+    console.log("ports:");
+    console.log(ports);
+
 }
+
+function main() {
+    console.log("DEVICES 2:")
+
+    ports();
+}
+
